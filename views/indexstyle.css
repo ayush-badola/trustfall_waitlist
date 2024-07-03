@@ -1,0 +1,200 @@
+*{
+    font-family: "Teko", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+body{
+    margin: 0;
+}
+.nav a{
+    margin-left: 3vh;
+    font-size: 230%;
+    text-decoration: none;
+    color: black;
+    letter-spacing: 0.8vh;
+  word-spacing: 1vh;
+}
+.nav{
+    margin-top: 1vh;
+    margin-bottom: 0.8vh;
+    font-family: "Lora", serif;
+      font-optical-sizing: auto;
+      font-style: normal;
+}
+.main{
+    height: 87vh;
+    padding-top: 4vh;
+    text-align: center;
+    background-image: url("yellow1.jpg");
+    background-size: cover;
+    font-size: 210%;
+    
+    color:#232323dd
+}
+.tutbut{
+    margin-top: 3vh;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    padding-left: 14vh;
+    padding-right: 14vh;
+    font-size: 70%;
+    border-radius: 3vh;
+    border: none;
+    background-color: #968448f3;
+    color:#ffffff;
+    font-weight: bolder;
+    font-family: "Anton SC", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    transition: ease-in 0.4s;
+    letter-spacing: 1vh;
+    word-spacing: 1vh;
+}
+.tutbut:hover{
+    cursor: pointer;
+    background-color: #232323dd;
+    color: #ffffff;
+    padding-left: 15vh;
+    padding-right: 15vh;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+}
+
+.waitform{
+    margin-top: -5vh;
+    padding: -5vh;
+}
+.inp{
+    width: 20%;
+    padding: 2vh 3vh;
+    box-sizing: border-box;
+    font-family: "Lora", serif;
+      font-optical-sizing: auto;
+      font-weight: 15%;
+      font-style: normal; 
+    border-radius: 8px;
+    border-style: none;
+    background-color:#ffffff;
+    color: #7a6413;
+    font-size: 70%;
+    font-weight: 700;
+    transition: ease-in 0.4s;
+    border: none;
+    outline: none;
+}
+.inp:focus{
+    width: 33%;
+    padding: 2vh 3vh;
+}
+.inp:hover{
+    width: 33%;
+    padding: 2vh 3vh;
+}
+.para1, .para2{
+    font-family: "Lora", serif;
+      font-optical-sizing: auto;
+      font-weight: 15%;
+      font-style: normal; 
+    font-size: 120%;
+    letter-spacing: -0.3vh;
+    word-spacing: 1vh;
+    line-height: 1.5;
+    font-weight: 500;
+    margin: 0;
+}
+
+@media only screen and (min-width: 320px){
+    .nav{
+        margin-top: 1vh;
+        margin-bottom: 0.8vh;
+        text-align: center;
+    }
+    .main{
+        height: 86.9vh;
+        padding-top: 4vh;
+        font-size: 120%;
+    }
+    .tutbut{
+        margin-top: 3vh;
+        padding-top: 2vh;
+        padding-bottom: 2vh;
+        padding-left: 2vh;
+        padding-right: 2vh;
+    }
+    .tutbut:hover{
+        padding-left: 3vh;
+        padding-right: 3vh;
+    }
+    .waitform{
+        margin-top: 2vh;
+    }
+    .inp{
+        width: 40%;
+        padding: 1vh 2vh;
+        margin-top: 2vh;
+    }
+    .para1, .para2{
+        margin-top: 2vh;
+        font-size: 160%;
+    }
+    .inp:focus{
+        width: 60%;
+        padding: 1vh 2vh;
+    }
+    .inp:hover{
+        width: 60%;
+        padding: 1vh 2vh;
+    }
+}
+
+
+
+
+
+@media only screen and (min-width: 1000px){
+    .nav{
+        margin-top: 1vh;
+        margin-bottom: 0.8vh;
+        text-align: left;
+    }
+    .main{
+        height: 87vh;
+        padding-top: 4vh;
+        font-size: 150%;
+        cursor: default;
+    }
+    .tutbut{
+        margin-top: 3vh;
+        padding-top: 3vh;
+        padding-bottom: 3vh;
+        padding-left: 4vh;
+        padding-right: 4vh;
+    }
+    .tutbut:hover{
+        padding-left: 5vh;
+        padding-right: 5vh;
+    }
+    .waitform{
+        margin-top: 2vh;
+    }
+    .inp{
+        width: 25%;
+        padding: 2vh 3vh;
+        margin-top: 2vh;
+    }
+    .para1, .para2{
+        margin-top: 2vh;
+        font-size: 160%;
+        cursor: default;
+    }
+    .inp:focus{
+        width: 40%;
+        padding: 2vh 3vh;
+    }
+    .inp:hover{
+        cursor: pointer;
+        width: 40%;
+        padding: 2vh 3vh;
+    }
+}
