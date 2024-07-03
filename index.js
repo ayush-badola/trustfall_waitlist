@@ -3,7 +3,9 @@ const express = require('express');
 const mongoose = require('mongoose');
 const Users = require('./models/waitlist');
 
+
 const app=express();
+app.set('view engine', 'ejs');
 const PORT = process.env.PORT || 3000;
 
 mongoose.set('strictQuery', false);
@@ -20,9 +22,37 @@ const connectDB = async () => {
     }
 }
 
+app.use(express.urlencoded({ extended: true }));
+
 app.get('/', (req,res) => {
-    res.send('Trustfall waitlist');
+    //res.send('Trustfall waitlist');
+    res.render("index");
 });
+
+app.post('/', async (req,res) => {
+    const name = (req.body.name).charAt(0).toUpperCase()+(req.body.name).slice(1);
+    const email = req.body.email;
+    const exist = await Users.findOne({email: email});
+    if(!exist){
+        const newuser = new Users({
+          name: name,
+          email: req.body.email
+        });
+        newuser.save();
+        res.send("Yay! You registered!");
+    }
+        
+    else{
+        res.send("You've already registered!");
+    }
+    
+});
+
+
+
+
+
+
 
 connectDB().then(()=>{
     app.listen(PORT, ()=>{
