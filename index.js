@@ -2,10 +2,12 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const Users = require('./models/waitlist');
-
+const path = require('path');
 
 const app=express();
+
 app.set('view engine', 'ejs');
+app.use(express.static(path.join(__dirname, "public")));
 const PORT = process.env.PORT || 3000;
 
 mongoose.set('strictQuery', false);
@@ -47,12 +49,6 @@ app.post('/', async (req,res) => {
     }
     
 });
-
-
-
-
-
-
 
 connectDB().then(()=>{
     app.listen(PORT, ()=>{
