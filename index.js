@@ -3,6 +3,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const Users = require('./models/waitlist');
 const path = require('path');
+const nodemailer = require('nodemailer');
+const SMTPConnection = require('nodemailer/lib/smtp-connection');
 
 const app=express();
 
@@ -26,6 +28,14 @@ const connectDB = async () => {
 
 app.use(express.urlencoded({ extended: true }));
 
+const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+    },
+});
+
 app.get('/', (req,res) => {
     res.render("index");
 });
@@ -40,6 +50,22 @@ app.post('/', async (req,res) => {
           email: req.body.email
         });
         await newuser.save();
+
+        const mailOptions = {
+            from: process.env.EMAIL_USER, // Sender's email address
+            to: email, // Recipient's email address
+            subject: 'Welcome to Trustfall', // Subject of the email
+            text: `Hi ${name}!\n\n\n\nThank you for registering with Trustfall's waitlist!\n\n\n\nYou'll get notified as sson as Trustfall launches!\n\n\n\nFall with Trust - Trustfall,\nAyush Badola (Founder, Trustfall)`, // Body of the email
+        };
+
+        await transporter.sendMail(mailOptions, (error, info) => {
+            if (error) {
+                console.error('Error sending email:', error);
+            } else {
+                console.log('Email sent:', info.response);
+            }
+        });
+
         res.render("registered");
     }
         
