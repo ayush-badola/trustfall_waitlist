@@ -15,7 +15,7 @@ mongoose.set('strictQuery', false);
 const connectDB = async () => {
     try{
         const conn = await mongoose.connect(process.env.MONGO_URI);
-        console.log('MongoDB connected at ${conn.connection.host}');
+        console.log(`MongoDB connected at ${conn.connection.host}`);
 
     }
     catch(error){
@@ -28,6 +28,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req,res) => {
     //res.send('Trustfall waitlist');
+    console.log("Entered rendering route")
     res.render("index");
 });
 
@@ -35,12 +36,14 @@ app.post('/', async (req,res) => {
     const name = (req.body.name).charAt(0).toUpperCase()+(req.body.name).slice(1);
     const email = req.body.email;
     const exist = await Users.findOne({email: email});
+    console.log("Entered main route");
     if(!exist){
+        console.log('user does not exist');
         const newuser = new Users({
           name: name,
           email: req.body.email
         });
-        newuser.save();
+        await newuser.save();
         res.send("Yay! You registered!");
     }
         
