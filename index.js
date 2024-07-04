@@ -27,8 +27,6 @@ const connectDB = async () => {
 app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req,res) => {
-    //res.send('Trustfall waitlist');
-    console.log("Entered rendering route")
     res.render("index");
 });
 
@@ -36,9 +34,7 @@ app.post('/', async (req,res) => {
     const name = (req.body.name).charAt(0).toUpperCase()+(req.body.name).slice(1);
     const email = req.body.email;
     const exist = await Users.findOne({email: email});
-    console.log("Entered main route");
     if(!exist){
-        console.log('user does not exist');
         const newuser = new Users({
           name: name,
           email: req.body.email
