@@ -44,11 +44,11 @@ app.post('/', async (req,res) => {
           email: req.body.email
         });
         await newuser.save();
-        res.send("Yay! You registered!");
+        res.render("registered");
     }
         
     else{
-        res.send("You've already registered!");
+        res.render("existing");
     }
     
 });

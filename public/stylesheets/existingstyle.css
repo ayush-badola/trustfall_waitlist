@@ -1,0 +1,50 @@
+*{
+    font-family: "Teko", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+body{
+    margin: 0;
+}
+.nav a{
+    margin-left: 3vh;
+    font-size: 230%;
+    text-decoration: none;
+    color: black;
+    letter-spacing: 0.8vh;
+  word-spacing: 1vh;
+}
+.nav{
+    margin-top: 1vh;
+    margin-bottom: 0.8vh;
+    font-family: "Lora", serif;
+      font-optical-sizing: auto;
+      font-style: normal;
+}
+.main{
+    height: 87vh;
+    padding-top: 4vh;
+    text-align: center;
+    background-image: url(/images/yellow1.jpg);
+    background-size: cover;
+    font-size: 210%;
+    
+    color:#232323dd
+}
+.main:hover{
+    cursor: default;
+}
+
+@media only screen and (min-width: 320px){
+    .nav{
+        margin-top: 1vh;
+        margin-bottom: 0.8vh;
+        text-align: center;
+    }}
+
+@media only screen and (min-width: 1000px) {
+    .nav{
+    text-align: left ;
+    }
+}
