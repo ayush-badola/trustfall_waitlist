@@ -56,7 +56,7 @@ app.post('/', async (req,res) => {
             from: 'ayush2badola@gmail.com', // Sender's email address
             to: email, // Recipient's email address
             subject: 'Welcome to Trustfall', // Subject of the email
-            text: `Hi ${name}!\n\n\n\nThank you for registering with Trustfall's waitlist!\n\n\n\nYou'll get notified as sson as Trustfall launches!\n\n\n\nFall with Trust - Trustfall,\nAyush Badola (Founder, Trustfall)`, // Body of the email
+            text: `Hi ${name}!\n\nThank you for registering with Trustfall's waitlist!\n\nYou'll get notified as sson as Trustfall launches!\n\nFall with Trust - Trustfall,\nAyush Badola (Founder, Trustfall)`, // Body of the email
         };
 
         await transporter.sendMail(mailOptions, (error, info) => {
